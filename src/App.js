@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Switch, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, NavLink, Redirect } from 'react-router-dom';
 import Home from './pages/Home';
 import Contact from './pages/Contact';
 import About from './pages/About';
@@ -11,9 +11,11 @@ const App = () => {
 			<BrowserRouter>
 				<nav>
 					<h1>My Articles</h1>
-          <NavLink exact to='/'>Home</NavLink>
-          <NavLink to='/about'>About</NavLink>
-          <NavLink to='/contact'>Contact</NavLink>
+					<NavLink exact to='/'>
+						Home
+					</NavLink>
+					<NavLink to='/about'>About</NavLink>
+					<NavLink to='/contact'>Contact</NavLink>
 				</nav>
 
 				<Switch>
@@ -24,8 +26,9 @@ const App = () => {
 						<About />
 					</Route>
 					<Route path='/contact' component={Contact} />
-          {/* Nótese que el path es dinámico y para eso usamos : esto le dice a react-router que es un parámetro de ruta y que puede cambiar*/}
-          <Route path='/articles/:id' component={Article}/>
+					<Route path='/articles/:id' component={Article} />
+					{/* Usamos un * para indicar que haga match con cualquier cosa (por eso va último). Usamos un componente Redirect de react-router. Decimos que el path sea el home */}
+					<Route path='*'><Redirect path='/'/></Route>
 				</Switch>
 			</BrowserRouter>
 		</div>
