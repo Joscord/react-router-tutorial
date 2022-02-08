@@ -10,19 +10,19 @@ const App = () => {
     <div className="app">
       {/* Este componente envuelve todo componente que use rutas */}
       <BrowserRouter>
-      <nav>
-        <h1>My Articles</h1>
-        {/* Creamos una ruta usando Route y anidamos el componente que usará esa ruta. La prop path es el path o la ruta de la página */}
-        <Route path=''>
-          {/* Anidamos el componente Home dentor de Route */}
-          <Home/>
-        </Route>
-        <Route path='/about'>
-          <About/>
-        </Route>
-        {/* Este es otra forma de escribir/anidar un componente dentro de una ruta*/}
-        <Route path='/contact' component={Contact}/>
-      </nav>
+        <nav>
+          <h1>My Articles</h1>
+        </nav>
+          {/* Creamos una ruta usando Route y anidamos el componente que usará esa ruta. La prop path es el path o la ruta de la página */}
+          <Route path=''>
+            {/* Anidamos el componente Home dentor de Route */}
+            <Home/>
+          </Route>
+          <Route path='/about'>
+            <About/>
+          </Route>
+          {/* Este es otra forma de escribir/anidar un componente dentro de una ruta*/}
+          <Route path='/contact' component={Contact}/>
       </BrowserRouter>
     </div>
   );
